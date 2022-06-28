@@ -1,0 +1,106 @@
+<section>
+    <div class="content">
+        <h1>Binance</h1>
+        <p *ngIf="loading">Loading...</p>
+        <p *ngIf="error">{{ error.value | json }}</p>
+        <div *ngIf="rates" class="items">
+            <div class="item" *ngFor="let rate of rates | slice:currentItemIndex:endItemIndex">
+                <p [routerLink]="['/detail', rate.baseCurrency.name]" class="title">{{ rate.baseCurrency.name }} <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 9L12.17 9L6.58 14.59L8 16L16 8L8 0L6.59 1.41L12.17 7L0 7L0 9Z" fill="#2962FF"/>
+</svg></span></p>
+                <div class="info">
+                    <p>Token: <span>{{ rate.baseCurrency.tokenId }}</span></p>
+                    <p>Timestamp month: <span>{{ rate.block.timestamp.month }}</span></p>
+                    <p>Base amount: <span>{{ rate?.baseAmount }}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <svg (click)="prevPage()" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                <path *ngIf="currentPage.value == 1" fill-rule="evenodd" clip-rule="evenodd" d="M7.41 1.41L6 0L0 6L6 12L7.41 10.59L2.83 6L7.41 1.41Z" fill="#3C474C"/>
+                <path *ngIf="currentPage.value > 1" fill-rule="evenodd" clip-rule="evenodd" d="M7.41 1.41L6 0L0 6L6 12L7.41 10.59L2.83 6L7.41 1.41Z" fill="#347CFF"/>
+            </svg>
+            <p>{{currentPage.value}}</p>
+            <svg (click)="nextPage()" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                <path *ngIf="currentPage.value == endPage" fill-rule="evenodd" clip-rule="evenodd" d="M0.59 10.59L2 12L8 6L2 0L0.59 1.41L5.17 6L0.59 10.59Z" fill="#3C474C"/>
+                <path *ngIf="currentPage.value != endPage" fill-rule="evenodd" clip-rule="evenodd" d="M0.59 10.59L2 12L8 6L2 0L0.59 1.41L5.17 6L0.59 10.59Z" fill="#347CFF"/>
+            </svg>
+        </div>
+    </div>
+    <div class="filter">
+        <h1>Фильтры</h1>
+        <form [formGroup]="filter">
+            <input type="text" id="name" formControlName="name" required>
+            <label for="name" placeholder="Название"> </label>
+            <input type="text" id="timestamp" required (click)="setTimestamp($event.target, 'openClose')">
+            <label for="timestamp" placeholder="Месяц"> </label>
+            <div class="_checkbox_box" [style.visibility]="open?'visible':'hidden'" [style.height]="open?'auto':'0'">
+                <div class="_checkbox">
+                    <input type="checkbox" value="1 " name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>1</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value=" 2" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>2</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="3" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>3</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="4" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>4</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="5" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>5</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="6" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>6</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="7" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>7</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="8" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>8</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="9" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>9</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="10" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>10</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="11" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>11</p>
+                </div>
+                <div class="_checkbox">
+                    <input type="checkbox" value="12" name="timestamp" data-index="" (change)="onTogle($event)">
+                    <p>12</p>
+                </div>
+            </div>
+            <p>Base amount</p>
+            <div class="_radio">
+                <input type="radio" name="baseAmount" id="baseAmount" value="" formControlName="baseAmount">
+                <p>Empety</p>
+            </div>
+            <div class="_radio">
+                <input type="radio" name="baseAmount" id="baseAmount" value="4000" formControlName="baseAmount">
+                <p>4000</p>
+            </div>
+            <div class="_radio">
+                <input type="radio" name="baseAmount" id="baseAmount" value="200" formControlName="baseAmount">
+                <p>200</p>
+            </div>
+            <div class="_radio">
+                <input type="radio" name="baseAmount" id="baseAmount" value="1725.1" formControlName="baseAmount">
+                <p>1725.1</p>
+            </div>
+        </form>
+    </div>
+</section>

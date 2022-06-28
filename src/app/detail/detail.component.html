@@ -1,0 +1,17 @@
+<section>
+    <p (click)="backToIndexPage()" class="_back"><span><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.66667 4.41665L2.5675 4.41665L5.82834 1.15581L5 0.333313L0.333336 4.99998L5 9.66665L5.8225 8.84415L2.5675 5.58331L9.66667 5.58331V4.41665Z" fill="#2962FF"/>
+    </svg></span>Вернуться</p>
+    <div *ngIf="rate" class="infoEl">
+        <h1> {{ rate[0].baseCurrency.name }} </h1>
+        <div class="info">
+            <p>Token ID: <span>{{ rate[0].baseCurrency.tokenId }}</span> </p>
+            <p>Address: <span>{{ rate[0].baseCurrency.address }}</span> </p>
+            <p>Base amount: <span>{{ rate[0].baseAmount }}</span> </p>
+            <p>Count: <span>{{ rate[0].count }}</span> </p>
+            <p>Quote amount: <span>{{ rate[0].quoteAmount }}</span> </p>
+            <p>Timestamp Month: <span>{{ rate[0].block.timestamp.month}}</span>
+            </p>
+        </div>
+    </div>
+</section>

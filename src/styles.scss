@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    display: flex;
+    height: 100vh;
+    p {
+        margin: 0;
+    }
+    h1 {
+        user-select: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 32px;
+        color: rgba(0, 0, 0, 0.87);
+        margin-bottom: 64px;
+    }
+    p.title {
+        cursor: pointer;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+        color: rgba(0, 0, 0, 0.87);
+        max-width: max-content;
+        span {
+            margin-left: 23px;
+        }
+    }
+    p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.87);
+        span {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #2962FF;
+            margin-left: 104px;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+section {
+    padding: 48px 64px;
+    flex-direction: column;
+    background: #FAFAFA;
+    ._back {
+        cursor: pointer;
+        color: #2962FF;
+        margin-bottom: 22px;
+        span {
+            margin-left: 0;
+            margin-right: 7px;
+        }
+    }
+    .infoEl {
+        h1 {
+            margin-bottom: 53px;
+        }
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 50%;
+            position: relative;
+            p {
+                flex: 0 0 50%;
+                margin-bottom: 40px;
+            }
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
